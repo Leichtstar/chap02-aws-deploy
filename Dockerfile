@@ -7,6 +7,9 @@ FROM eclipse-temurin:17-jdk-alpine AS builder
 # 작업 디렉토리 설정
 WORKDIR /app
 
+# Alpine Linux에 CURL 명령어 설치(ECS의 헬스 체크용)
+RUN apk add curl --no-chache curl
+
 # Gradle Wrapper와 설정 파일 복사
 COPY gradlew .
 COPY gradle gradle
